@@ -328,6 +328,7 @@ document
 
 document.getElementById("respond-button").addEventListener("click", () => {
   document.getElementById("alertModal").style.display = "none";
+  document.getElementById("successAlert").style.display = "block";
 });
 
 document.getElementById("end").addEventListener("click", () => {
@@ -595,10 +596,10 @@ function updateCurrentLocationMarker(position) {
     html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="30" height="30">
       <path fill="#dc2626" d="M192 0C86 0 0 86 0 192c0 77.4 27 99 172.3 309.7c9.5 13.8 29.9 13.8 39.4 0C357 291 384 269.4 384 192C384 86 298 0 192 0zM192 272c-44.2 0-80-35.8-80-80s35.8-80 80-80s80 35.8 80 80s-35.8 80-80 80z"/>
     </svg>`,
-    className: 'custom-div-icon',
+    className: "custom-div-icon",
     iconSize: [30, 30],
     iconAnchor: [15, 30],
-    popupAnchor: [0, -30]
+    popupAnchor: [0, -30],
   });
 
   // Add new marker
