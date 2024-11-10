@@ -1,0 +1,358 @@
+html {
+    height: 100%;
+    font-family: Inter;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+}
+
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 2;
+    padding-top: 10vw;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 79vw;
+    height: 145vw;
+    margin-left: 4.2vw;
+    border-radius: 16px;
+    text-align: center;
+    padding-top: 6vw;
+    padding-bottom: 6vw;
+    padding-left: 6vw;
+    padding-right: 6vw;
+}
+
+.modal-content img {
+    height: 15vw;
+    width: auto;
+    text-align: center;
+}
+
+.modal-content h1 {
+    font-weight: 600;
+    font-weight: 8.5vw;
+    margin-top: 2vw;
+}
+
+.modal-content p {
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4.5vw;
+    margin-top: -3vw;
+    color: #474747;
+}
+
+#perms {
+    width: 80vw;
+    height: auto;
+    margin-top: 3vw;
+}
+
+.begin-session {
+    border: none;
+    border-radius: 12px;
+    width: 80vw;
+    height: 18vw;
+    background: #F15D2E;
+    ;
+    color: white;
+    font-size: 5.7vw;
+    text-align: center;
+    font-family: 'Inter';
+    margin-top: 8vw;
+}
+
+#gb {
+    font-weight: 400;
+    font-style: normal;
+    font-size: 5vw;
+    margin-top: 6vw;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#map-custom-stuff {
+    display: none;
+    z-index: 1;
+}
+
+.icon-large {
+    font-size: 4rem;
+    color: #F15D2E;
+    margin-bottom: 1.5rem;
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20vw;
+    background: transparent;
+    z-index: 1;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.timer {
+    height: 13vw;
+    width: 27vw;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+    border: none;
+    border-radius: 45px;
+    color: #F15D2E;
+    font-style: normal;
+    font-weight: 600;
+    font-family: Inter;
+    font-size: 6vw;
+    margin-top: 8vw;
+    text-align: center;
+    margin-left: 4vw;
+}
+
+.end-button {
+    border: none;
+    border-radius: 8px;
+    width: 27vw;
+    height: 13vw;
+    background: #E73F31;
+    color: white;
+    font-size: 6vw;
+    text-align: center;
+    font-family: 'Inter';
+    margin-top: 8vw;
+    margin-right: 4vw;
+    text-align: center;
+}
+
+.bottom-card {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 88.5%;
+    height: 67vw;
+    background: white;
+    border-top-right-radius: 45px;
+    border-top-left-radius: 45px;
+    padding: 6vw;
+    z-index: 1;
+}
+
+.bottom-card h1 {
+    font-weight: 600;
+    font-weight: 8.5vw;
+    margin-top: 2vw;
+}
+
+.bottom-card p {
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4.5vw;
+    margin-top: 3vw;
+    color: #474747;
+}
+
+.respond-button {
+    border: none;
+    border-radius: 12px;
+    width: 87.5vw;
+    height: 16vw;
+    background: #F15D2E;
+    ;
+    color: white;
+    font-size: 5.7vw;
+    text-align: center;
+    font-family: 'Inter';
+    margin-top: 2vw;
+}
+
+#map-img {
+    width: 91vw;
+    height: auto;
+    margin-bottom: -3vw;
+    margin-left: -6vw;
+    margin-right: -6vw;
+    margin-top: -6vw;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.dist {
+    font-family: Inter;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 5vw;
+    margin-top: -50vw;
+    margin-bottom: 5vw;
+    color: white;
+    background: #474747;
+    border: none;
+    border-radius: 12px;
+    height: 10vw;
+    width: 40vw;
+}
+
+#skip {
+    font-weight: 400;
+    font-style: normal;
+    font-size: 5vw;
+    margin-top: 6vw;
+    color: black;
+}
+
+.expanded-bottom-card {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 88.5%;
+    height: 125vw;
+    background: white;
+    border-top-right-radius: 45px;
+    border-top-left-radius: 45px;
+    padding: 6vw;
+    z-index: 1;
+    display: none;
+}
+
+.inline {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.expanded-bottom-card h1 {
+    font-weight: 600;
+    font-weight: 8.5vw;
+    margin-top: 2vw;
+}
+
+.expanded-bottom-card p {
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4.5vw;
+    margin-top: 3vw;
+    color: #474747;
+}
+
+.expanded-bottom-card img {
+    filter: drop-shadow(0px 2.5px 12px rgba(0, 0, 0, 0.08));
+    height: 23vw;
+    width: auto;
+}
+
+.profile-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3vw;
+}
+
+.profile-wrapper p {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 5.5vw;
+}
+
+.profile-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    width: 87vw;
+    margin-top: -7vw
+}
+
+.top-profile {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.top-profile img {
+    height: 16vw;
+    width: 16vw;
+    margin-left: 2vw;
+    margin-top: 5vw;
+    margin-right: 4vw;
+}
+
+.top-profile p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 4.5vw;
+    margin-top: 5.2vw;
+}
+
+.user-info {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-left: 2vw;
+    width: 65vw;
+    margin-top: -2vw;
+    /* margin-bottom: 2vw; */
+}
+
+.user-info p {
+    font-size: 4vw;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.pending-button {
+    border: none;
+    border-radius: 12px;
+    width: 87.5vw;
+    height: 16vw;
+    background: #F15D2E;
+    color: white;
+    font-size: 5.7vw;
+    text-align: center;
+    font-family: 'Inter';
+    margin-top: 2vw;
+}
+
+#success-button {
+    background: #43B862;
+}
+
+#succ-img {
+    width: 55vw;
+    height: auto;
+    margin-bottom: 6vw;
+    margin-left: -6vw;
+    margin-right: -6vw;
+    margin-top: -6vw;
+}
+
+#karma-line {
+    margin-left: 25vw;
+}

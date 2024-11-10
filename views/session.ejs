@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <title>ImpactSOS</title>
+    <link
+      rel="icon"
+      href="/assets/logo-mc.png"
+      sizes="16x16"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="/css/session.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script src="/socket.io/socket.io.js"></script>
+    <script
+      async
+      defer
+      src="https://cdn.getresonance.net/sdk/js/resonance-1.0.2.js"
+    ></script>
+    <script src="/js/acc.js"></script>
+    <script src="https://apis.mapmyindia.com/advancedmaps/v1/aa6ca1e6c399bc880ca03d0e1c03b197/map_load?v=2.1"></script>
+  </head>
+
+  <body>
+    <div id="map"></div>
+    <div id="startModal" class="modal">
+      <div class="modal-content">
+        <i class="fas fa-shield-alt icon-large"></i>
+        <!-- <img src="https://cdn.discordapp.com/attachments/872743735388172318/929360957921185803/unknown.png"> -->
+        <h1>Starting Session</h1>
+        <p>
+          We'll keep tracking your location while you're travelling. In case we
+          detect any collision/accident we require the following
+        </p>
+        <!-- <img
+          id="perms"
+          src="https://cdn.discordapp.com/attachments/872743735388172318/929365318650953778/unknown.png"
+        /> -->
+        <button class="begin-session" id="begin">Begin</button>
+        <a href="/dashboard">
+          <p id="gb">Go back</p>
+        </a>
+      </div>
+    </div>
+    <div id="alertModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <img
+          id="map-img"
+          src="https://cdn.discordapp.com/attachments/872743735388172318/929388296369492058/unknown.png"
+        />
+        <button class="dist" id="dist">1.2km away</button>
+        <h1>Alert near you!</h1>
+        <p>
+          We’ve detected an alert go off in an area near by your location! If
+          you can responding to it
+        </p>
+        <button class="begin-session" id="respond-button">Respond</button>
+        <p id="skip">Skip</p>
+      </div>
+    </div>
+    <div id="successAlert" class="modal" style="display: none">
+      <div class="modal-content">
+        <img
+          id="succ-img"
+          src="https://cdn.discordapp.com/attachments/872743735388172318/929425704263774268/unknown.png"
+        />
+        <p>
+          You successfully responded to the SOS call! You really put in effort
+          to reach to the accident site quickly!
+        </p>
+        <h1 style="margin-bottom: -2vw">Here's your reward</h1>
+        <p
+          id="karma-line"
+          style="
+            font-size: 14vw;
+            display: flex;
+            margin-top: 5vw;
+            font-weight: 600;
+          "
+        >
+          <span id="karma">10</span
+          ><img
+            style="height: 12vw; width: auto; margin-top: 3vw; margin-left: 2vw"
+            src="https://cdn.discordapp.com/attachments/872743735388172318/929255270700433458/unknown.png"
+          />
+        </p>
+        <button class="begin-session" id="backSession" style="margin-top: -8vw">
+          Back to session
+        </button>
+        <a href="/dashboard">
+          <p id="gb">Go to dashboard</p>
+        </a>
+      </div>
+    </div>
+    <div id="map-custom-stuff">
+      <div class="top-bar">
+        <button class="timer">00:48</button>
+        <button class="end-button" id="end">END</button>
+      </div>
+      <div class="bottom-card" id="bottom-card">
+        <input id="victim-id" type="hidden" value="" />
+        <h1>2.3km away</h1>
+        <p style="margin-top: -4vw">Last updated 10s ago</p>
+        <p>
+          Accident confirmed nearby you, please reach the marked location and
+          check on the passenger’s status. Authorities and helplines have
+          already been contacted.
+        </p>
+        <button class="respond-button" id="bottom-card-respond-button">
+          Respond
+        </button>
+      </div>
+      <div class="expanded-bottom-card" id="expanded-bottom-card">
+        <div class="inline">
+          <div>
+            <h1>2.3km away</h1>
+            <p style="margin-top: -4vw">Last updated 10s ago</p>
+          </div>
+          <img
+            id="google-maps-icon"
+            src="https://cdn.discordapp.com/attachments/872743735388172318/929401958761136158/unknown.png"
+          />
+        </div>
+        <p>
+          Accident confirmed nearby you, please reach the marked location and
+          check on the passenger’s status. Authorities and helplines have
+          already been contacted.
+        </p>
+        <hr
+          style="
+            border: 1px solid #000000;
+            opacity: 0.1;
+            width: 75vw;
+            text-align: center;
+            margin-top: 7vw;
+            margin-left: 4vw;
+          "
+        />
+        <div class="profile-wrapper">
+          <p>Passenger's info</p>
+        </div>
+        <div class="profile-card">
+          <div class="top-profile">
+            <img
+              src="https://cdn.discordapp.com/attachments/872743735388172318/929118038014451722/unknown.png"
+            />
+            <div style="display: block">
+              <p id="name"></p>
+              <p
+                style="font-size: 4vw; color: #474747; margin-top: -4vw"
+                id="gp"
+              >
+                Male, 9810049980
+              </p>
+              <p
+                style="font-size: 4vw; color: #474747; margin-top: -4vw"
+                id="bg"
+              >
+                Blood Group: B+
+              </p>
+            </div>
+          </div>
+          <div class="user-info">
+            <p>
+              Emergency Contact<br /><span
+                style="font-size: 4.5vw; font-weight: 600; color: #f15d2e"
+                id="epn"
+                >9871703877</span
+              >
+            </p>
+            <p>
+              Alert limit<br /><span
+                style="font-size: 4.5vw; font-weight: 600; color: #f15d2e"
+                id="at"
+                >45s</span
+              >
+            </p>
+          </div>
+        </div>
+        <button class="pending-button">Confirm</button>
+        <!-- <button class="pending-button" id="success-button">Success</button> -->
+      </div>
+    </div>
+    <script src="/js/session.js"></script>
+  </body>
+</html>
